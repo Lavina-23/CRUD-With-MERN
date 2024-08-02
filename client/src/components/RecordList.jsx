@@ -1,12 +1,16 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
 
 const Record = (props) => (
   <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
     <td className="p-4 align-middle">{props.record.name}</td>
-    <td className="p-4 align-middle">{props.record.link_url}</td>
+    <td className="p-4 align-middle">
+      <a href={props.record.link_url} target="_blank" className="text-blue-600">{props.record.link_url}</a>
+    </td>
     <td>
-      <div>
+      <div className="flex gap-2">
         <Link
           className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-slate-100 h-9 rounded-md px-3"
           to={`/edit/${props.record._id}`}
@@ -68,7 +72,7 @@ export default function RecordList() {
 
   return (
     <>
-      <h3 className="text-lg font-semibold p-4">Links Records</h3>
+      {/* <h3 className="text-lg font-semibold p-4">Links Records</h3> */}
       <div className="border rounded-lg overflow-hidden">
         <div className="relative w-full overflow-auto">
           <table className="w-full caption-bottom text-sm">
@@ -77,7 +81,7 @@ export default function RecordList() {
                 <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">
                   Name
                 </th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">
+                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground w-[40%]">
                   Link
                 </th>
                 <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">
