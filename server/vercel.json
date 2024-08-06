@@ -4,10 +4,14 @@
       "runtime": "nodejs18.x"
     }
   },
+  "builds": {
+    "src": "*.js",
+    "use": "@vercel/node"
+  },
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/server/index.ts"
+      "source": "/(.*)",
+      "destination": "/"
     }
   ]
 }
